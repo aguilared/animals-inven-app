@@ -1,2 +1,2 @@
-# animals-inven-app
-Animal Inventory App
+# bita-personal-app
+Bitacora personal
