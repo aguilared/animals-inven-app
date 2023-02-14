@@ -118,7 +118,7 @@ export default function ModalBitaEventsAdd(Routes: Props) {
   }, [setVisible1]);
 
   const onSubmit = async (dataE: any) => {
-    console.log("DATAE", dataE);
+    //console.log("DATAE", dataE);
     try {
       const dataEE = {
         bitacora_id: Number(dataE.bitacora_id),
@@ -127,15 +127,15 @@ export default function ModalBitaEventsAdd(Routes: Props) {
         description: dataE.description,
         event_date: new Date(dataE.event_date),
       };
-      console.log("DATAEE", dataEE);
+      //console.log("DATAEE", dataEE);
       const ENDPOINT = API_URL + "bitacora/events/create";
-      console.log("ENDPOINT", ENDPOINT);
+      //console.log("ENDPOINT", ENDPOINT);
       const result = await fetch(ENDPOINT, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(dataEE),
       });
-      console.log("result", result);
+      //console.log("result", result);
       setVisible1(false);
       setTimeout(() => {
         //navigation.navigation.push('ActivitiesList');
@@ -147,10 +147,10 @@ export default function ModalBitaEventsAdd(Routes: Props) {
   };
 
   const handleOnChange = (bitacoraKey, value) => {
-    console.log("Selectedtipo_event_id", value);
+    //console.log("Selectedtipo_event_id", value);
   };
   const handleOnChange1 = (bitacoraKey, value) => {
-    console.log("SelectedtEvents_id", value);
+    //console.log("SelectedtEvents_id", value);
   };
 
   return (
@@ -160,10 +160,10 @@ export default function ModalBitaEventsAdd(Routes: Props) {
           <Dialog
             visible={visible1}
             onDismiss={hideDialog1}
-            style={{ backgroundColor }}
+            style={{ backgroundColor: theme.colors.background }}
           >
             <Dialog.Title style={styles.title}>
-              Add event to Bitacora ID: {bitaEvents.bitacora_id}
+              Add Event to Bitacora Id: {bitaEvents.bitacora_id}
             </Dialog.Title>
             <Dialog.ScrollArea style={{ maxHeight: 450, paddingHorizontal: 0 }}>
               <ScrollView>
@@ -183,26 +183,6 @@ export default function ModalBitaEventsAdd(Routes: Props) {
                     )}
                   />
                   {errors.id && <Text>This is required.</Text>}
-                </View>
-
-                <View style={styles.inputContainerStyle}>
-                  <Controller
-                    name="tipo_event_id"
-                    control={control}
-                    defaultValue={String(eventId)}
-                    render={({ field: { onChange, onBlur, value, ref } }) => (
-                      <TextInput
-                        label="TipoEventID"
-                        testID="input"
-                        mode="outlined"
-                        onBlur={onBlur}
-                        value={value}
-                        onChangeText={(value) => onChange(value)}
-                        ref={ref}
-                      />
-                    )}
-                  />
-                  {errors.tipo_event_id && <Text>This is required.</Text>}
                 </View>
 
                 <View style={styles.inputContainerStyle}>
@@ -253,12 +233,12 @@ export default function ModalBitaEventsAdd(Routes: Props) {
 
                 <View style={styles.inputContainerStyle}>
                   <Controller
-                    name="events_id"
+                    name="tipo_event_id"
                     control={control}
-                    defaultValue={String(eventssId)}
+                    defaultValue={String(eventId)}
                     render={({ field: { onChange, onBlur, value, ref } }) => (
                       <TextInput
-                        label="EventsID"
+                        label="TipoEventID"
                         testID="input"
                         mode="outlined"
                         onBlur={onBlur}
@@ -268,7 +248,7 @@ export default function ModalBitaEventsAdd(Routes: Props) {
                       />
                     )}
                   />
-                  {errors.events_id && <Text>This is required.</Text>}
+                  {errors.tipo_event_id && <Text>This is required.</Text>}
                 </View>
 
                 <View style={stylesss.container}>
@@ -311,6 +291,26 @@ export default function ModalBitaEventsAdd(Routes: Props) {
                             size={scale(20)}
                           />
                         )}
+                      />
+                    )}
+                  />
+                  {errors.events_id && <Text>This is required.</Text>}
+                </View>
+
+                <View style={styles.inputContainerStyle}>
+                  <Controller
+                    name="events_id"
+                    control={control}
+                    defaultValue={String(eventssId)}
+                    render={({ field: { onChange, onBlur, value, ref } }) => (
+                      <TextInput
+                        label="EventsID"
+                        testID="input"
+                        mode="outlined"
+                        onBlur={onBlur}
+                        value={value}
+                        onChangeText={(value) => onChange(value)}
+                        ref={ref}
                       />
                     )}
                   />
@@ -419,7 +419,7 @@ const styles = StyleSheet.create({
     marginBottom: 1,
     paddingVertical: 5,
     marginLeft: 5,
-    fontSize: 19,
+    fontSize: 16,
     fontWeight: "bold",
   },
   title1: {
