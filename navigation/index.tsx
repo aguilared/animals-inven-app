@@ -19,14 +19,13 @@ import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import ModalBitacora from "../screens/ModalBitacora";
 import ModalEvent from "../screens/ModalEvent";
+import ModalAnimalView from "../screens/ModalAnimalView";
 import ModalBitaEventsAdd from "../screens/ModalBitaEventsAdd";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
 import Bitacoras from "../screens/Bitacoras";
 import Animals from "../screens/Animals";
-import Drop from "../screens/Drop";
-import Drop1 from "../screens/Drop1";
 
 import {
   RootStackParamList,
@@ -75,6 +74,10 @@ function RootNavigator() {
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="ModalEvent" component={ModalEvent} />
       </Stack.Group>
+      <Stack.Group screenOptions={{ presentation: "modal" }}>
+        <Stack.Screen name="ModalAnimalView" component={ModalAnimalView} />
+      </Stack.Group>
+      
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="ModalBitacora" component={ModalBitacora} />
       </Stack.Group>

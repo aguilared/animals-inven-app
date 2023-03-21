@@ -70,7 +70,7 @@ function onAppStateChange(status: AppStateStatus) {
   }
 }
 
-export default function Animals<T>() {
+export default function ModalAnimalView<T>() {
   useAppState({
     onChange: onAppStateChange,
   });
@@ -110,7 +110,7 @@ export default function Animals<T>() {
   const titulo = "Inventarios Animals : " + convertDate(dates);
   const titulo1 = "Gonzalera Ranch";
   const navigation = useNavigation();
-  console.log("NAVIGATIOOON", navigation);
+  //console.log("animals Data", data);
 
   const [visible, setVisible] = React.useState(false);
   const [visible1, setVisible1] = React.useState(false);
@@ -152,48 +152,7 @@ export default function Animals<T>() {
               <Appbar.Header style={styles.header}>
                 <Appbar.Content
                   titleStyle={styles.header}
-                  title={`
-                  Id:${item.id}`}
-                />
-                <Appbar.Action
-                  icon="eye"
-                  onPress={() =>
-                    navigation.navigate("ModalAnimalView", {
-                      id: item.id,
-                      name: item.name,
-                      birthdate: item.birthdate,
-                      owner_id: item.owner_id,
-                      clase_id: item.clase_id,
-                      tipopart: item.tipopart,
-                      hierro: item.hierro,
-                      mother: item.mother,
-                      info: item.info,
-                      alive: item.alive,
-                      owner: item.owner.name,
-                      clase: item.clase.description,
-                    })
-                  }
-                />
-                <Appbar.Action
-                  icon="eye"
-                  onPress={() =>
-                    navigation.navigate("ModalAnimalView", {
-                      id: 4,
-                    })
-                  }
-                />
-                <Appbar.Action
-                  icon="pencil"
-                  onPress={() =>
-                    navigation.navigate("ModalAnimalEdit", {
-                      id: item.id,
-                      name: item.name,
-                      clase_id: item.clase_id,
-                      mother: item.mother,
-                      owner_id: item.owner_id,
-                      owner: item.owner.name,
-                    })
-                  }
+                  title={`Id:${item.id}`}
                 />
                 <Appbar.Action icon="delete" onPress={() => alert("Search")} />
                 <Appbar.Action

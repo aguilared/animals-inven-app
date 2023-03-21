@@ -39,6 +39,36 @@ export type RootStackParamList = {
     tipoevent: string,
     description: string
   ];
+
+  ModalAnimalEdit: [
+    id: number,
+    name: string,
+    birthdate: string,
+    owner_id: number,
+    clase_id: number,
+    tipopart: string,
+    hierro: string,
+    mother: string,
+    info: string,
+    alive: string,
+    owner: string,
+    clase: number
+  ];
+
+  ModalAnimalView: [
+    id: number,
+    name: string,
+    birthdate: string,
+    owner_id: number,
+    clase_id: number,
+    tipopart: string,
+    hierro: string,
+    mother: string,
+    info: string,
+    alive: string,
+    owner: string,
+    clase: number
+  ];
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
